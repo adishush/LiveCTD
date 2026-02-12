@@ -61,14 +61,42 @@ def get_dolomites_prompt(days_remaining):
 # IMAGE GENERATION
 # =============================================
 def generate_image(prompt, output_filename):
-    """Generate an image using Gemini Imagen and save it."""
+    """Generate an image using Gemini and save it."""
     print(f"\n🎨 Generating: {output_filename}")
     print(f"📝 Prompt: {prompt[:100]}...")
 
     client = genai.Client(api_key=API_KEY)
+    output_path = os.path.join(OUTPUT_DIR, output_filename)
 
+    # Try with gemini-2.5-flash (Nano Banana) - image generation via generateContent
+    models_to_try = ['gemini-2.0-flash-exp-image-generation', 'gemini-2.0-flash-exp']
+
+    for model_name in models_to_try:
+        try:
+            print(f"🔄 Trying model: {model_name}")
+            response = client.models.generate_content(
+                model=model_name,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_modalities=['IMAGE', 'TEXT']
+                )
+            )
+
+            for part in response.candidates[0].content.parts:
+                if part.inline_data and part.inline_data.mime_type.startswith('image/'):
+                    with open(output_path, 'wb') as f:
+                        f.write(part.inline_data.data)
+                    print(f"✅ Saved to: {output_path}")
+                    return True
+
+            print(f"⚠️ No image in response from {model_name}")
+
+        except Exception as e:
+            print(f"❌ Error with {model_name}: {e}")
+
+    # Fallback: try Imagen 3
     try:
-        # Use Imagen 3 for high-quality image generation
+        print("🔄 Trying fallback: imagen-3.0-generate-002")
         response = client.models.generate_images(
             model='imagen-3.0-generate-002',
             prompt=prompt,
@@ -80,44 +108,15 @@ def generate_image(prompt, output_filename):
 
         if response.generated_images:
             image = response.generated_images[0]
-            output_path = os.path.join(OUTPUT_DIR, output_filename)
-
-            # Save image
             image.image.save(output_path)
-            print(f"✅ Saved to: {output_path}")
+            print(f"✅ Saved (Imagen) to: {output_path}")
             return True
-        else:
-            print(f"❌ No images generated")
-            return False
 
     except Exception as e:
-        print(f"❌ Error generating image: {e}")
+        print(f"❌ Imagen fallback error: {e}")
 
-        # Fallback: try with gemini-2.0-flash-exp
-        try:
-            print("🔄 Trying fallback with gemini-2.0-flash-exp...")
-            response = client.models.generate_content(
-                model='gemini-2.0-flash-exp',
-                contents=f"Generate this image: {prompt}",
-                config=types.GenerateContentConfig(
-                    response_modalities=['IMAGE', 'TEXT']
-                )
-            )
-
-            for part in response.candidates[0].content.parts:
-                if part.inline_data and part.inline_data.mime_type.startswith('image/'):
-                    output_path = os.path.join(OUTPUT_DIR, output_filename)
-                    with open(output_path, 'wb') as f:
-                        f.write(part.inline_data.data)
-                    print(f"✅ Saved (fallback) to: {output_path}")
-                    return True
-
-            print("❌ Fallback also failed - no image in response")
-            return False
-
-        except Exception as e2:
-            print(f"❌ Fallback error: {e2}")
-            return False
+    print(f"❌ All models failed for {output_filename}")
+    return False
 
 # =============================================
 # MAIN
