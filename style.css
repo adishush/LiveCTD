@@ -61,6 +61,38 @@ body {
 }
 
 /* =============================================
+   FLOATING HEARTS
+   ============================================= */
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatUp linear forwards;
+    user-select: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.3;
+    }
+
+    90% {
+        opacity: 0.15;
+    }
+
+    100% {
+        transform: translateY(-110vh) translateX(40px) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* =============================================
    WEDDING HERO SECTION
    ============================================= */
 .wedding-hero {

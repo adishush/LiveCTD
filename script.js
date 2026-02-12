@@ -101,6 +101,28 @@ function createParticles() {
 }
 
 // =============================================
+// FLOATING HEARTS
+// =============================================
+function createFloatingHearts() {
+    const hearts = ['💕', '💖', '💗', '❤️', '💘', '🤍'];
+    const container = document.getElementById('particles');
+
+    function spawnHeart() {
+        const heart = document.createElement('span');
+        heart.classList.add('floating-heart');
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.fontSize = (Math.random() * 14 + 8) + 'px';
+        heart.style.animationDuration = (Math.random() * 6 + 6) + 's';
+        heart.style.opacity = Math.random() * 0.4 + 0.1;
+        container.appendChild(heart);
+
+        heart.addEventListener('animationend', () => heart.remove());
+    }
+
+    // Spawn a heart every 800ms
+    setInterval(spawnHeart, 800);
+}
 // SCROLL REVEAL
 // =============================================
 function initScrollReveal() {
@@ -138,6 +160,7 @@ function bustImageCache() {
 // =============================================
 document.addEventListener('DOMContentLoaded', () => {
     createParticles();
+    createFloatingHearts();
     startCountdowns();
     initScrollReveal();
     bustImageCache();
