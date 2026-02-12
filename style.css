@@ -1,0 +1,504 @@
+/* =============================================
+   sB LIVE COUNTDOWN - STYLES
+   ============================================= */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Heebo', sans-serif;
+    background: #060609;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* =============================================
+   PARTICLES BACKGROUND
+   ============================================= */
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 215, 0, 0.4);
+    border-radius: 50%;
+    animation: drift linear infinite;
+}
+
+@keyframes drift {
+    0% {
+        opacity: 0;
+        transform: translateY(0) translateX(0);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) translateX(50px);
+    }
+}
+
+/* =============================================
+   WEDDING HERO SECTION
+   ============================================= */
+.wedding-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(255, 107, 157, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+        linear-gradient(180deg, #060609 0%, #0a0a14 50%, #060609 100%);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="0.5" fill="rgba(255,215,0,0.08)"/></svg>');
+    background-size: 60px 60px;
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    padding: 40px 20px;
+    z-index: 2;
+}
+
+/* sB Heart Logo */
+.sb-logo {
+    margin-bottom: 30px;
+    animation: floatLogo 4s ease-in-out infinite;
+}
+
+.heart-logo {
+    width: 100px;
+    height: 90px;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+}
+
+@keyframes floatLogo {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.hero-pretext {
+    font-family: 'Heebo', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 300;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, #ffd700 0%, #fff 40%, #ffd700 70%, #ffb347 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: goldFlow 4s linear infinite;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+@keyframes goldFlow {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.hero-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-weight: 200;
+    color: rgba(255, 215, 0, 0.6);
+    letter-spacing: 8px;
+    margin-bottom: 50px;
+}
+
+/* Wedding Countdown */
+.wedding-countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 60px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 200;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.countdown-label {
+    font-family: 'Heebo', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.countdown-separator {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 200;
+    color: rgba(255, 215, 0, 0.3);
+    margin-top: -20px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: fadeIn 2s ease-out 1.5s both;
+}
+
+.scroll-indicator span {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+.scroll-arrow {
+    font-size: 18px;
+    color: rgba(255, 215, 0, 0.4);
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =============================================
+   TRIP SECTIONS
+   ============================================= */
+.trip-section {
+    position: relative;
+    padding: 80px 20px;
+    z-index: 1;
+}
+
+.trip-section:nth-child(2) {
+    background: linear-gradient(180deg, #060609 0%, #0a0812 50%, #060609 100%);
+}
+
+.trip-section:nth-child(3) {
+    background: linear-gradient(180deg, #060609 0%, #080a12 50%, #060609 100%);
+}
+
+.trip-card {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trip-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.trip-card.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Trip Image */
+.trip-image-container {
+    position: relative;
+    flex: 1.2;
+    min-width: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trip-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.trip-image-container:hover .trip-image {
+    transform: scale(1.03);
+}
+
+.trip-image-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(135deg, #0f0a1a, #1a1028);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.placeholder-emoji {
+    font-size: 60px;
+    animation: floatLogo 3s ease-in-out infinite;
+}
+
+.placeholder-text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 300;
+}
+
+.trip-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Trip Info */
+.trip-info {
+    flex: 0.8;
+    text-align: center;
+}
+
+.trip-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+}
+
+.trip-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+/* Mini Countdown */
+.trip-countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.mini-countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 55px;
+    padding: 12px 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mini-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1;
+}
+
+.mini-label {
+    font-size: 10px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.mini-sep {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: rgba(255, 215, 0, 0.25);
+    margin-top: -15px;
+}
+
+.trip-date {
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.footer {
+    text-align: center;
+    padding: 60px 20px;
+    z-index: 1;
+    position: relative;
+}
+
+.footer-heart {
+    width: 50px;
+    height: 45px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.footer p {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 2px;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+
+    .trip-card,
+    .trip-card.reverse {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .trip-image-container {
+        width: 100%;
+    }
+
+    .trip-info {
+        width: 100%;
+    }
+
+    .countdown-item {
+        min-width: 60px;
+    }
+
+    .wedding-countdown {
+        gap: 4px;
+    }
+
+    .hero-pretext {
+        letter-spacing: 4px;
+    }
+}
+
+@media (max-width: 400px) {
+    .countdown-number {
+        font-size: 2.2rem;
+    }
+
+    .countdown-item {
+        min-width: 50px;
+    }
+}

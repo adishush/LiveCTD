@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sB Countdown 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Heebo:wght@200;300;400;700;900&family=Dancing+Script:wght@400;700&family=Montserrat:wght@200;300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- ==========================================
+         HERO: WEDDING COUNTDOWN
+         ========================================== -->
+    <section class="wedding-hero" id="weddingHero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="sb-logo">
+                <svg viewBox="0 0 120 110" class="heart-logo">
+                    <defs>
+                        <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ff6b9d;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path
+                        d="M60 100 C60 100, 10 65, 10 35 C10 15, 30 5, 60 25 C90 5, 110 15, 110 35 C110 65, 60 100, 60 100Z"
+                        fill="none" stroke="url(#heartGrad)" stroke-width="2.5" />
+                    <text x="60" y="58" text-anchor="middle" fill="url(#heartGrad)"
+                        font-family="'Dancing Script', cursive" font-size="28" font-weight="700">sB</text>
+                </svg>
+            </div>
+            <p class="hero-pretext">עד שנהיה</p>
+            <h1 class="hero-title">מר ומרס אליהו</h1>
+            <p class="hero-date">23.03.2026</p>
+
+            <div class="wedding-countdown" id="weddingCountdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="wDays">00</span>
+                    <span class="countdown-label">ימים</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="wHours">00</span>
+                    <span class="countdown-label">שעות</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="wMinutes">00</span>
+                    <span class="countdown-label">דקות</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="wSeconds">00</span>
+                    <span class="countdown-label">שניות</span>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <span>גלי למטה לראות מה מחכה לנו</span>
+                <div class="scroll-arrow">↓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         USA HONEYMOON COUNTDOWN
+         ========================================== -->
+    <section class="trip-section" id="usaSection">
+        <div class="trip-card">
+            <div class="trip-image-container">
+                <img src="images/usa-honeymoon.png" alt="USA Honeymoon" class="trip-image" id="usaImage"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="trip-image-placeholder" style="display:none;">
+                    <span class="placeholder-emoji">🌅</span>
+                    <span class="placeholder-text">התמונה נוצרת... חזרו מחר!</span>
+                </div>
+                <div class="trip-badge">ירח דבש 🇺🇸</div>
+            </div>
+            <div class="trip-info">
+                <h2 class="trip-title">US Honeymoon</h2>
+                <p class="trip-subtitle">California, USA</p>
+                <div class="trip-countdown" id="usaCountdown">
+                    <div class="mini-countdown-item">
+                        <span class="mini-number" id="uDays">--</span>
+                        <span class="mini-label">ימים</span>
+                    </div>
+                    <div class="mini-sep">:</div>
+                    <div class="mini-countdown-item">
+                        <span class="mini-number" id="uHours">--</span>
+                        <span class="mini-label">שעות</span>
+                    </div>
+                    <div class="mini-sep">:</div>
+                    <div class="mini-countdown-item">
+                        <span class="mini-number" id="uMinutes">--</span>
+                        <span class="mini-label">דקות</span>
+                    </div>
+                </div>
+                <p class="trip-date">7 ביוני 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         DOLOMITES MINIMOON COUNTDOWN
+         ========================================== -->
+    <section class="trip-section" id="dolomitesSection">
+        <div class="trip-card reverse">
+            <div class="trip-image-container">
+                <img src="images/dolomites-minimoon.png" alt="Dolomites Minimoon" class="trip-image" id="dolomitesImage"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="trip-image-placeholder" style="display:none;">
+                    <span class="placeholder-emoji">🏔️</span>
+                    <span class="placeholder-text">התמונה נוצרת... חזרו מחר!</span>
+                </div>
+                <div class="trip-badge">מיני-מון 🇮🇹</div>
+            </div>
+            <div class="trip-info">
+                <h2 class="trip-title">Dolomites Minimoon</h2>
+                <p class="trip-subtitle">Dolomites, Italy</p>
+                <div class="trip-countdown" id="dolomitesCountdown">
+                    <div class="mini-countdown-item">
+                        <span class="mini-number" id="dDays">--</span>
+                        <span class="mini-label">ימים</span>
+                    </div>
+                    <div class="mini-sep">:</div>
+                    <div class="mini-countdown-item">
+                        <span class="mini-number" id="dHours">--</span>
+                        <span class="mini-label">שעות</span>
+                    </div>
+                    <div class="mini-sep">:</div>
+                    <div class="mini-countdown-item">
+                        <span class="mini-number" id="dMinutes">--</span>
+                        <span class="mini-label">דקות</span>
+                    </div>
+                </div>
+                <p class="trip-date">4 במאי 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <svg viewBox="0 0 120 110" class="footer-heart">
+            <path d="M60 100 C60 100, 10 65, 10 35 C10 15, 30 5, 60 25 C90 5, 110 15, 110 35 C110 65, 60 100, 60 100Z"
+                fill="none" stroke="rgba(255,107,157,0.3)" stroke-width="2" />
+            <text x="60" y="58" text-anchor="middle" fill="rgba(255,107,157,0.4)"
+                font-family="'Dancing Script', cursive" font-size="28" font-weight="700">sB</text>
+        </svg>
+        <p>Made with love 💕</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
