@@ -31,30 +31,34 @@ OUTPUT_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'images')
 # =============================================
 def get_usa_prompt(days_remaining):
     return (
-        f'A cinematic, high-resolution landscape photograph capturing a random, '
-        f'breathtaking scenic view of California during the golden hour (e.g., the rugged '
-        f'Big Sur coastline, a misty redwood forest, or the rolling golden hills of Napa Valley). '
-        f'Centered on the image is a clear, elegant white script text overlay that reads: '
+        f'A cinematic, high-resolution 16:9 landscape photograph of a famous California location '
+        f'during golden hour. The landscape should fill the entire frame with NO heart shapes, '
+        f'NO frames, NO borders overlaid on the scenery. Show a different iconic spot each time: '
+        f'Hollywood sign from behind, Golden Gate Bridge at sunset, Big Sur cliffs, Yosemite valley, '
+        f'Pacific Coast Highway, or Napa Valley vineyards. '
+        f'In the upper portion of the image, overlay clean elegant white cursive script text that reads: '
         f'"there are only {days_remaining} days to our US Honeymoon". '
-        f'In the bottom right corner, include a minimalist white heart outline logo with the '
-        f'stylized letters "sB" inside; the heart must be transparent so that the landscape '
-        f'background "completes" the shape of the heart. Directly below the heart, in an aesthetic '
-        f'and clean sans-serif font, add a text label specifying the location pictured '
-        f'(e.g., "Big Sur, California"). The overall aesthetic should be romantic, high-end, and airy.'
+        f'In the bottom right corner only, place a very small minimalist white heart outline with '
+        f'the letters "sB" inside it, and directly below it in small clean sans-serif font, '
+        f'the name of the location shown (e.g. "Hollywood, Los Angeles, California"). '
+        f'The overall look should be like a premium travel postcard — romantic, airy, and elegant. '
+        f'Do NOT add any heart shapes or decorative frames over the landscape itself.'
     )
 
 def get_dolomites_prompt(days_remaining):
     return (
-        f'A cinematic, high-resolution landscape photograph capturing a breathtaking, '
-        f'diverse scenic view typical of the Dolomites in Italy. The image should feature iconic '
-        f'elements of the region, such as jagged limestone peaks, rolling alpine meadows dotted '
-        f'with wildflowers, a rustic mountain hut, or a winding trail, all bathed in the warm '
-        f'light of sunrise or sunset. Centered on the image is a clear, elegant white script '
-        f'text overlay that reads: "there are only {days_remaining} days to our Dolomites Minimoon". '
-        f'In the bottom right corner, include a minimalist white heart logo with the stylized '
-        f'letters "sB" inside. Directly below the heart, in a small, clean sans-serif font, '
-        f'add the text label: "Dolomites, Italy". The overall aesthetic should be romantic, '
-        f'airy, and high-end.'
+        f'A cinematic, high-resolution 16:9 landscape photograph of the Dolomites, Italy '
+        f'during sunrise or sunset. The landscape should fill the entire frame with NO heart shapes, '
+        f'NO frames, NO borders overlaid on the scenery. Show iconic Dolomites scenery: '
+        f'jagged limestone peaks, alpine meadows with wildflowers, a rustic mountain hut, '
+        f'Lago di Braies, Seceda ridgeline, or Tre Cime di Lavaredo. '
+        f'In the upper portion of the image, overlay clean elegant white cursive script text that reads: '
+        f'"there are only {days_remaining} days to our Dolomites Minimoon". '
+        f'In the bottom right corner only, place a very small minimalist white heart outline with '
+        f'the letters "sB" inside it, and directly below it in small clean sans-serif font, '
+        f'the text "Dolomites, Italy". '
+        f'The overall look should be like a premium travel postcard — romantic, airy, and elegant. '
+        f'Do NOT add any heart shapes or decorative frames over the landscape itself.'
     )
 
 # =============================================
