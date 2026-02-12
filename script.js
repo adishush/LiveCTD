@@ -5,7 +5,7 @@
 // =============================================
 // TARGET DATES
 // =============================================
-const WEDDING_DATE = new Date('2026-03-23T17:00:00+02:00');
+const WEDDING_DATE = new Date('2026-03-26T17:00:00+02:00');
 const USA_DATE = new Date('2026-06-07T00:00:00+02:00');
 const DOLOMITES_DATE = new Date('2026-05-04T00:00:00+02:00');
 
