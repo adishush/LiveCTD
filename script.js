@@ -47,14 +47,16 @@ function startCountdowns() {
     const usaEls = {
         days: document.getElementById('uDays'),
         hours: document.getElementById('uHours'),
-        minutes: document.getElementById('uMinutes')
+        minutes: document.getElementById('uMinutes'),
+        seconds: document.getElementById('uSeconds')
     };
 
     // Dolomites countdown
     const dolomitesEls = {
         days: document.getElementById('dDays'),
         hours: document.getElementById('dHours'),
-        minutes: document.getElementById('dMinutes')
+        minutes: document.getElementById('dMinutes'),
+        seconds: document.getElementById('dSeconds')
     };
 
     function tick() {
