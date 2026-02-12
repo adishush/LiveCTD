@@ -67,7 +67,7 @@ body {
     position: fixed;
     bottom: -30px;
     pointer-events: none;
-    z-index: 0;
+    z-index: 2;
     animation: floatUp linear forwards;
     user-select: none;
 }
