@@ -114,7 +114,6 @@ function createParticles() {
 // =============================================
 function createFloatingHearts() {
     const hearts = ['💕', '💖', '💗', '❤️', '💘', '🤍'];
-    const container = document.getElementById('particles');
 
     function spawnHeart() {
         const heart = document.createElement('span');
@@ -124,7 +123,7 @@ function createFloatingHearts() {
         heart.style.fontSize = (Math.random() * 14 + 8) + 'px';
         heart.style.animationDuration = (Math.random() * 6 + 6) + 's';
         heart.style.opacity = Math.random() * 0.4 + 0.1;
-        container.appendChild(heart);
+        document.body.appendChild(heart);
 
         heart.addEventListener('animationend', () => heart.remove());
     }
