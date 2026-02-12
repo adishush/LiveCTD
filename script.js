@@ -57,17 +57,24 @@ function startCountdowns() {
         minutes: document.getElementById('dMinutes')
     };
 
-    // Update immediately
-    updateCountdown(WEDDING_DATE, weddingEls);
-    updateCountdown(USA_DATE, usaEls);
-    updateCountdown(DOLOMITES_DATE, dolomitesEls);
-
-    // Update every second
-    setInterval(() => {
+    function tick() {
         updateCountdown(WEDDING_DATE, weddingEls);
         updateCountdown(USA_DATE, usaEls);
         updateCountdown(DOLOMITES_DATE, dolomitesEls);
-    }, 1000);
+    }
+
+    // Update immediately
+    tick();
+
+    // Update every second — belt and suspenders approach
+    setInterval(tick, 1000);
+
+    // Also use requestAnimationFrame for smooth live updates
+    function rafTick() {
+        tick();
+        requestAnimationFrame(rafTick);
+    }
+    requestAnimationFrame(rafTick);
 }
 
 // =============================================
